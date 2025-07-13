@@ -40,5 +40,18 @@ for dir in "$DOTFILES_DIR"/*; do
   echo
 done
 
+# Manejar archivos individuales (como starship.toml)
+EXTRA_FILES=( "starship.toml" )
+
+for file in "${EXTRA_FILES[@]}"; do
+  src="$DOTFILES_DIR/$file"
+  dest="$TARGET_DIR/$file"
+
+  if [[ -f "$src" ]]; then
+    ln -sf "$src" "$dest"
+    echo "✅ Symlink archivo: $dest → $src"
+  fi
+done
+
 echo "📄 Resultado final (symlinks en ~/.config):"
 find "$TARGET_DIR" -maxdepth 1 -type l -exec ls -l {} \;
