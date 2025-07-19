@@ -5,142 +5,139 @@
 @define-color wb-act-fg rgba(0,0,0,0.7);
 @define-color wb-hvr-bg rgba(75,75,125,0.4);
 @define-color wb-hvr-fg rgba(174,170,240,0.8);
+@define-color wb-act-hvr-bg rgba(180,190,254,0.6);
+@define-color wb-act-hvr-fg rgba(0,0,0,0.7);
 
+/* --- General configuration --- */
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
-  font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "JetBrainsMono Nerd Font Propo";
   border: none;
-  border-radius: 0px;
   font-weight: bold;
-  font-size: 12px;
-  min-height: 10px;
+  font-size: 14px;
 }
 
+/* --- Make waybar transluscent --- */
 window#waybar {
   background: @bar-bg;
-  border-radius: 15px;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
 
+/* --- Tooltip configuration*/
 tooltip {
   background: @main-bg;
   color: @main-fg;
   border-radius: 7px;
-  border-width: 0px;
+  border-width: 1px;
 }
 
-#workspaces,
-#taskbar {
-  padding: 0px;
-}
-
+/* --- Workspaces configuration --- */
 #workspaces button {
   box-shadow: none;
   text-shadow: none;
-  padding: 0px;
   border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
+  margin: 3px 0px;
+  padding: 0px 10px;
   color: @main-fg;
-  animation: ws_normal 20s ease-in-out 1;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
   background: @wb-act-bg;
   color: @wb-act-fg;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: ws_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  margin: 0px 3px;
+  padding: 0px 16px;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active:hover {
+  background: @wb-act-hvr-bg;
+  color: @wb-act-hvr-fg;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
   background: @wb-hvr-bg;
   color: @wb-hvr-fg;
-  animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
+/* --- Taskbar configuration --- */
 #taskbar button {
   box-shadow: none;
   text-shadow: none;
-  padding: 0px;
   border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
+  padding: 0px 4px;
   color: @wb-color;
-  animation: tb_normal 20s ease-in-out 1;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
 #taskbar button.active {
   background: @wb-act-bg;
   color: @wb-act-color;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: tb_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  padding: 0px 16px;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
+}
+
+#taskbar button.active:hover {
+  background: @wb-act-hvr-bg;
+  color: @wb-act-hvr-color;
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
 #taskbar button:hover {
   background: @wb-hvr-bg;
   color: @wb-hvr-color;
-  animation: tb_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  /* transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682); */
+  transition: all 0.3s ease-in-out;
 }
 
-#tray menu * {
-  min-height: 16px;
+/* --- Individual modules configuration --- */
+
+#battery.warning {
+  color: rgb(255, 179, 71);
 }
 
-#tray menu separator {
-  min-height: 10px;
+#battery.critical {
+  color: rgb(255, 105, 97);
 }
 
+#workspaces,
+#taskbar,
 #tray,
 #clock,
-#battery,
-#cpu,
-#memory,
-#disk,
 #network,
+#battery,
 #custom-power,
 #bluetooth,
-#custom-l_end,
-#custom-r_end {
+#control-panel,
+#system,
+#backlight,
+#pulseaudio {
+  background-color: rgba(0, 0, 0, 0);
+  margin: 2px 8px;
+  padding: 0px 0px;
+}
+
+/* --- Rounded groups configuration --- */
+
+#workspaces,
+#taskbar,
+#control-panel,
+#system,
+#taskbar,
+#workspaces,
+#clock {
+  background: @main-bg;
   color: @main-fg;
-  background: @main-bg;
-  opacity: 1;
-  margin: 4px 0px 4px 0px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#custom-r_end {
-  border-radius: 0px 21px 21px 0px;
-  margin-right: 9px;
-  padding-right: 3px;
-}
-
-#custom-l_end {
-  border-radius: 21px 0px 0px 21px;
-  margin-left: 9px;
-  padding-left: 3px;
-}
-
-#custom-padd_bg {
-  background: @main-bg;
-  margin: 4px 0px 4px 0px;
+  border-radius: 25px;
+  margin: 2px 8px;
+  padding: 3px 12px;
 }
