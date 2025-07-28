@@ -17,21 +17,8 @@ Singleton {
   signal sinkProtectionTriggered(string reason)
 
   PwObjectTracker {
-    objects: [sink]
+    objects: [root.sink]
   }
-
-  // Connections {
-  //   target: sink?.audio ?? null
-  //   property bool lastReady: false
-  //   property real lastVolume: 0
-
-  //   function onVolumeChanged() {
-  //     if (!lastReady) {
-  //       lastVolume = sink.audio.volume;
-  //       lastReady = true;
-  //     }
-  //   }
-  // }
 
   // Inicializar
   Component.onCompleted: {
@@ -43,11 +30,11 @@ Singleton {
 
   // Detecta cuando el nodo ya está listo
   Connections {
-    target: sink
+    target: root.sink
     function onReadyChanged() {
-      if (sink.ready && sink.audio) {
-        volume = sink.audio.volume;
-        muted = sink.audio.muted;
+      if (root.sink.ready && root.sink.audio) {
+        root.volume = root.sink.audio.volume;
+        root.muted = root.sink.audio.muted;
       }
     }
   }
@@ -60,12 +47,17 @@ Singleton {
 
   // Actualiza el volumen cuando cambia
   Connections {
-    target: sink?.audio
+    target: {
+      const audio = root.sink?.audio;
+      if (!audio)
+        console.debug("sink.audio no disponible aún");
+      return audio ?? null;
+    }
     function onVolumeChanged() {
-      volume = sink.audio.volume;
+      root.volume = root.sink.audio.volume;
     }
     function onMutedChanged() {
-      muted = sink.audio.muted;
+      root.muted = root.sink.audio.muted;
     }
   }
 }
