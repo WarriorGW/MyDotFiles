@@ -1,41 +1,13 @@
 import QtQuick
-import QtQuick.Layouts
-import Quickshell
-import Quickshell.Services.Pipewire
 import "../../config"
+import "../system"
+
+// import qs.config
+// import qs.modules.system
 
 Row {
   id: volumeWidget
   spacing: 6
-
-  property PwNode sink: Pipewire.defaultAudioSink
-  property PwNode source: Pipewire.defaultAudioSource
-
-  signal sinkProtectionTriggered(string reason)
-
-  property real volume: 0
-
-  // Detecta cuando el nodo ya está listo
-  Connections {
-    target: Pipewire.defaultAudioSink
-    onReadyChanged: {
-      if (Pipewire.defaultAudioSink.ready && Pipewire.defaultAudioSink.audio) {
-        volume = Pipewire.defaultAudioSink.audio.volume;
-      }
-    }
-  }
-
-  // Actualiza el volumen cuando cambia
-  Connections {
-    target: sink?.audio
-    onVolumeChanged: volume = sink.audio.volume
-  }
-
-  Component.onCompleted: {
-    if (sink?.audio?.volume !== undefined) {
-      volume = sink.audio.volume;
-    }
-  }
 
   Text {
     id: volumeIcon
@@ -44,11 +16,11 @@ Row {
     font.pixelSize: Theme.fontSize
 
     text: {
-      if (sink?.audio?.muted) {
+      if (Audio.muted) {
         return ""; //  mute
-      } else if (volume < 0.33) {
+      } else if (Audio.volume < 0.33) {
         return ""; // Silencio
-      } else if (volume < 0.66) {
+      } else if (Audio.volume < 0.66) {
         return ""; // Bajo
       } else {
         return ""; // Alto
@@ -63,14 +35,18 @@ Row {
     font.pixelSize: Theme.fontSize
     font.weight: Theme.fontWeight
 
-    text: if (sink?.audio?.muted) {
+    text: if (Audio.muted) {
       "Muted";
     } else {
-      Math.round(volume * 100) + "%";
+      Math.round(Audio.volume * 100) + "%";
     }
   }
 
-  PwObjectTracker {
-    objects: [sink]
-  }
+  // MouseArea {
+  //   anchors.fill: parent
+  //   cursorShape: Qt.PointingHandCursor
+  //   onClicked: {
+  //     Audio.toggleMute();
+  //   }
+  // }
 }
