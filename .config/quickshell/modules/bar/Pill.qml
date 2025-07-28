@@ -30,8 +30,8 @@ Item {
 
     anchors {
       verticalCenter: parent.verticalCenter
-      left: parent.left
-      right: parent.right
+      // left: parent.left
+      // right: parent.right
       horizontalCenter: parent.horizontalCenter
       leftMargin: root.padding
       rightMargin: root.padding
