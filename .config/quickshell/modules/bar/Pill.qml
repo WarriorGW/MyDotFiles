@@ -5,6 +5,7 @@ import "../../config"
 Item {
   id: root
   property real padding: 10
+  property real rowSpacing: 6
   implicitHeight: Theme.options.bar.pillsHeight
   height: implicitHeight
   implicitWidth: rowLayout.implicitWidth + padding * 3
@@ -26,12 +27,10 @@ Item {
 
   RowLayout {
     id: rowLayout
-    spacing: 6
+    spacing: root.rowSpacing
 
     anchors {
       verticalCenter: parent.verticalCenter
-      // left: parent.left
-      // right: parent.right
       horizontalCenter: parent.horizontalCenter
       leftMargin: root.padding
       rightMargin: root.padding

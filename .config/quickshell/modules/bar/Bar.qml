@@ -18,8 +18,8 @@ Scope {
       color: Theme.options.bar.barBg
 
       margins {
-        left: 18
-        right: 18
+        left: 10
+        right: 10
         top: 10
         bottom: 0
       }
@@ -40,7 +40,7 @@ Scope {
 
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 4
+            spacing: 10
 
             Pill {
               Row {
@@ -63,6 +63,8 @@ Scope {
                 }
               }
             }
+
+            Pill {}
           }
         }
 
@@ -74,7 +76,7 @@ Scope {
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
             anchors.centerIn: parent
-            spacing: 6
+            spacing: 10
 
             Pill {
               Workspaces {
@@ -91,17 +93,40 @@ Scope {
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            spacing: 6
+            spacing: 10
 
             Pill {
+              rowSpacing: 12
+
               VolumeWidget {
                 id: volumeWidget
+              }
+
+              BrightnessWidget {
+                id: brightnessWidget
+              }
+
+              Battery {
+                id: batteryWidget
               }
             }
 
             Pill {
               ClockWidget {
                 id: clockWidget
+              }
+            }
+
+            Pill {
+              rowSpacing: 12
+              Bluetooth {
+                id: bluetoothWidget
+              }
+              Network {
+                id: networkWidget
+              }
+              Power {
+                id: powerWidget
               }
             }
           }

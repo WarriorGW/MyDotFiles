@@ -12,7 +12,7 @@ Row {
   // El contenedor visual de textos
   Item {
     id: contentWrapper
-    implicitWidth: volumeIcon.implicitWidth + volumeText.implicitWidth + spacing
+    implicitWidth: volumeIcon.implicitWidth + volumeText.implicitWidth + volumeWidget.spacing
     implicitHeight: Math.max(volumeIcon.implicitHeight, volumeText.implicitHeight)
 
     Row {
