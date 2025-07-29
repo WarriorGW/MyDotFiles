@@ -94,6 +94,13 @@ Row {
           }
         }
         font.bold: true
+
+        Behavior on color {
+          ColorAnimation {
+            duration: 300
+            easing.type: Easing.InOutQuad
+          }
+        }
       }
 
       MouseArea {
