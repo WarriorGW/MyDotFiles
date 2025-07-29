@@ -5,11 +5,18 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
+  id: root
+
   readonly property string fontFamily: "JetBrains Mono Nerd Font"
   readonly property int fontSize: 14
   readonly property int fontWeight: Font.Bold
 
   property alias options: configOptionsJsonAdapter
+
+  // Función para simular rgba estilo CSS
+  function rgba(r, g, b, a) {
+    return Qt.rgba(r / 255, g / 255, b / 255, a);
+  }
 
   JsonAdapter {
     id: configOptionsJsonAdapter
@@ -22,8 +29,11 @@ Singleton {
       property real barMarginTop: 0
       property real barMarginSides: 10
       property color barBg: "#00000000"
-      property color mainBg: Qt.rgba(30 / 255, 30 / 255, 46 / 255, 0.8)
-      property color mainFg: Qt.rgba(180 / 255, 190 / 255, 254 / 255, 1)
+      property color mainBg: root.rgba(30, 30, 46, 0.8)
+      property color mainFg: root.rgba(180, 190, 254, 1)
+      property color powerFg: root.rgba(243, 139, 168, 1)
+      property color dangerFg: root.rgba(255, 105, 97, 1)
+      property color warningFg: root.rgba(255, 215, 0, 1)
 
       // Workspace Buttons
       property real wsButtonWidth: 32
@@ -31,14 +41,14 @@ Singleton {
       property real wsButtonHeight: 26
 
       // Workspace Button Colors
-      property color wbActBg: Qt.rgba(180 / 255, 190 / 255, 254 / 255, 0.9)
-      property color wbActFg: Qt.rgba(0 / 255, 0 / 255, 0 / 255, 0.7)
-      property color wbHvrBg: Qt.rgba(75 / 255, 75 / 255, 125 / 255, 0.4)
-      property color wbHvrFg: Qt.rgba(174 / 255, 170 / 255, 240 / 255, 0.8)
-      property color wbActHvrBg: Qt.rgba(180 / 255, 190 / 255, 254 / 255, 0.6)
-      property color wbActHvrFg: Qt.rgba(0 / 255, 0 / 255, 0 / 255, 0.7)
-      property color wsOcc: Qt.rgba(150 / 255, 150 / 255, 200 / 255, 0.2)
-      property color wsEmpty: Qt.rgba(50 / 255, 50 / 255, 70 / 255, 0.1)
+      property color wbActBg: root.rgba(180, 190, 254, 0.9)
+      property color wbActFg: root.rgba(0, 0, 0, 0.7)
+      property color wbHvrBg: root.rgba(75, 75, 125, 0.4)
+      property color wbHvrFg: root.rgba(174, 170, 240, 0.8)
+      property color wbActHvrBg: root.rgba(180, 190, 254, 0.6)
+      property color wbActHvrFg: root.rgba(0, 0, 0, 0.7)
+      property color wsOcc: root.rgba(150, 150, 200, 0.2)
+      property color wsEmpty: root.rgba(50, 50, 70, 0.1)
 
       // Shared style for modules
       property real moduleRadius: 25
