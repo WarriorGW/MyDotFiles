@@ -4,7 +4,9 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
-import "../../config"
+import qs.config
+
+// import "../../config"
 
 Row {
   id: workspacesRow

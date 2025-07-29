@@ -2,7 +2,7 @@
 
 import QtQuick
 import Quickshell
-import "./modules/bar" as Bar
+import qs.modules.bar
 
 // import "./modules/osd"
 
@@ -27,5 +27,5 @@ import "./modules/bar" as Bar
 // }
 
 Scope {
-  Bar.Bar {}
+  Bar {}
 }

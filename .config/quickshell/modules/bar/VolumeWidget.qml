@@ -1,9 +1,9 @@
 import QtQuick
-import "../../config"
-import "../system"
+import qs.config
+import qs.modules.system
 
-// import qs.config
-// import qs.modules.system
+// import "../../config"
+// import "../system"
 
 Row {
   id: volumeWidget

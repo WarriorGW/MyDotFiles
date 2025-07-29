@@ -2,7 +2,7 @@ import Quickshell
 import QtQuick
 import qs.config
 
-// import "../../config"
+// import "root:/config/"
 
 Text {
   id: power

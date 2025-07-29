@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "../../config"
+import qs.config
+
+// import "../../config"
 
 Scope {
   id: root
