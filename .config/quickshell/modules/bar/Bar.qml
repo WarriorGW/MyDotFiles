@@ -56,7 +56,6 @@ Scope {
                 font.weight: Theme.fontWeight
                 font.pixelSize: 14
                 text: "Arch Linux"
-                anchors.verticalCenter: parent.verticalCenter
                 font.family: Theme.fontFamily
               }
             }
