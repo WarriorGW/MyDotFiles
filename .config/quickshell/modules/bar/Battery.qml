@@ -5,12 +5,13 @@ import qs.modules.components
 
 ModuleDisplay {
   id: root
+
   property color fontColor: {
     if (Power.stateName === "Charging") {
       return Theme.options.bar.safeFg;
-    } else if (Battery.percentageInt <= 20) {
+    } else if (Power.percentageInt <= 20) {
       return Theme.options.bar.criticalFg;
-    } else if (Battery.percentageInt <= 40) {
+    } else if (Power.percentageInt <= 40) {
       return Theme.options.bar.warningFg;
     } else {
       return Theme.options.bar.mainFg;
