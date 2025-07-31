@@ -7,7 +7,7 @@ import Quickshell.Io
 Singleton {
   id: root
 
-  readonly property string fontFamily: "JetBrains Mono Nerd Font"
+  readonly property string fontFamily: "JetBrains Mono Nerd Font Propo"
   readonly property int fontSize: 14
   readonly property int fontWeight: Font.Bold
 
@@ -32,8 +32,10 @@ Singleton {
       property color mainBg: root.rgba(30, 30, 46, 0.8)
       property color mainFg: root.rgba(180, 190, 254, 1)
       property color powerFg: root.rgba(243, 139, 168, 1)
-      property color dangerFg: root.rgba(255, 105, 97, 1)
-      property color warningFg: root.rgba(255, 215, 0, 1)
+      property color dangerFg: root.rgba(255, 100, 100, 1)
+      property color safeFg: root.rgba(100, 250, 100, 1)
+      property color warningFg: root.rgba(255, 179, 71, 1)
+      property color criticalFg: root.rgba(230, 80, 100, 1)
 
       // Workspace Buttons
       property real wsButtonWidth: 32
