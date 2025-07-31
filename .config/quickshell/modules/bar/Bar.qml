@@ -20,10 +20,9 @@ Scope {
       color: Theme.options.bar.barBg
 
       margins {
-        left: 10
-        right: 10
-        top: 10
-        bottom: 0
+        top: Theme.options.bar.barMarginTop
+        left: Theme.options.bar.barMarginSides
+        right: Theme.options.bar.barMarginSides
       }
 
       anchors {
@@ -34,7 +33,6 @@ Scope {
 
       RowLayout {
         anchors.fill: parent
-        spacing: 10
 
         // ---------- Left Section ----------
         Item {
@@ -42,27 +40,24 @@ Scope {
 
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 10
+            spacing: Theme.options.bar.pillsHPadding
 
             Pill {
-              Row {
-                spacing: 6
-                Text {
-                  id: logoText
-                  color: Theme.options.bar.mainFg
-                  font.pixelSize: 26
-                  text: ""
-                }
+              Text {
+                id: logoText
+                color: Theme.options.bar.mainFg
+                font.pixelSize: 26
+                text: ""
+              }
 
-                Text {
-                  id: logoText2
-                  color: Theme.options.bar.mainFg
-                  font.weight: Theme.fontWeight
-                  font.pixelSize: 14
-                  text: "Arch Linux"
-                  anchors.verticalCenter: parent.verticalCenter
-                  font.family: Theme.fontFamily
-                }
+              Text {
+                id: logoText2
+                color: Theme.options.bar.mainFg
+                font.weight: Theme.fontWeight
+                font.pixelSize: 14
+                text: "Arch Linux"
+                anchors.verticalCenter: parent.verticalCenter
+                font.family: Theme.fontFamily
               }
             }
           }
@@ -76,7 +71,7 @@ Scope {
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
             anchors.centerIn: parent
-            spacing: 10
+            spacing: Theme.options.bar.pillSpacing
 
             Pill {
               Workspaces {
@@ -93,11 +88,9 @@ Scope {
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            spacing: 10
+            spacing: Theme.options.bar.pillSpacing
 
             Pill {
-              rowSpacing: 12
-
               VolumeWidget {
                 id: volumeWidget
               }
@@ -118,7 +111,6 @@ Scope {
             }
 
             Pill {
-              rowSpacing: 12
               Bluetooth {
                 id: bluetoothWidget
               }

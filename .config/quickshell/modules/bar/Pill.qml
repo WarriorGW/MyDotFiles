@@ -6,8 +6,8 @@ import qs.config
 
 Item {
   id: root
-  property real padding: 10
-  property real rowSpacing: 6
+  property real padding: Theme.options.bar.innerPillPadding
+  property real rowSpacing: Theme.options.bar.innerPillSpacing
   implicitHeight: Theme.options.bar.pillsHeight
   height: implicitHeight
   implicitWidth: rowLayout.implicitWidth + padding * 3

@@ -1,53 +1,29 @@
 import QtQuick
-import qs.config
+import qs.modules.components
 import qs.modules.system
 
-// import "../../config"
-// import "../system"
+ModuleDisplay {
+  isClickable: true
+  onClicked: Audio.toggleMute()
 
-// El contenedor visual de textos
-Item {
-  id: contentWrapper
-  implicitWidth: volumeIcon.implicitWidth + volumeText.implicitWidth + volumeRow.spacing
-  implicitHeight: Math.max(volumeIcon.implicitHeight, volumeText.implicitHeight)
+  StyledBarText {
+    id: volumeIcon
 
-  Row {
-    id: volumeRow
-    anchors.fill: parent
-    spacing: 8
-
-    Text {
-      id: volumeIcon
-      color: Theme.options.bar.mainFg
-      font.family: Theme.fontFamily
-      font.pixelSize: Theme.fontSize
-
-      text: {
-        if (Audio.muted)
-          return "";
-        else if (Audio.volume < 0.33)
-          return "";
-        else if (Audio.volume < 0.66)
-          return "";
-        else
-          return "";
-      }
-    }
-
-    Text {
-      id: volumeText
-      color: Theme.options.bar.mainFg
-      font.family: Theme.fontFamily
-      font.pixelSize: Theme.fontSize
-      font.weight: Theme.fontWeight
-      text: Audio.muted ? "Muted" : Math.round(Audio.volume * 100) + "%"
+    text: {
+      if (Audio.muted)
+        return "";
+      else if (Audio.volume < 0.33)
+        return "";
+      else if (Audio.volume < 0.66)
+        return "";
+      else
+        return "";
     }
   }
 
-  MouseArea {
-    anchors.fill: parent
-    cursorShape: Qt.PointingHandCursor
-    onClicked: Audio.toggleMute()
-    hoverEnabled: true
+  StyledBarText {
+    id: volumeText
+
+    text: Audio.muted ? "Muted" : Math.round(Audio.volume * 100) + "%"
   }
 }

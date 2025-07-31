@@ -23,10 +23,10 @@ Singleton {
 
     property JsonObject bar: JsonObject {
       // General
-      property int barHeight: 38
+      property int barHeight: 37
       property int pillsHeight: barHeight - 2
       property int pillsHPadding: 30
-      property real barMarginTop: 0
+      property real barMarginTop: 10
       property real barMarginSides: 10
       property color barBg: "#00000000"
       property color mainBg: root.rgba(30, 30, 46, 0.8)
@@ -38,9 +38,9 @@ Singleton {
       property color criticalFg: root.rgba(230, 80, 100, 1)
 
       // Workspace Buttons
-      property real wsButtonWidth: 32
+      property real wsButtonWidth: 35
       property real wsButtonActiveWidth: 45
-      property real wsButtonHeight: 26
+      property real wsButtonHeight: 23
 
       // Workspace Button Colors
       property color wbActBg: root.rgba(180, 190, 254, 0.9)
@@ -54,10 +54,10 @@ Singleton {
 
       // Shared style for modules
       property real moduleRadius: 25
-      property real moduleMarginTop: 2
-      property real moduleMarginH: 8
-      property real modulePaddingV: 3
-      property real modulePaddingH: 12
+      property real pillSpacing: 14
+      property real innerPillSpacing: 14
+      property real innerPillPadding: 10
+      property real textIconSpacing: 8
     }
   }
 }

@@ -1,14 +1,11 @@
-import Quickshell
 import QtQuick
 import qs.config
 import qs.modules.system
+import qs.modules.components
 
-// import "../../config"
-
-Text {
-  id: power
-
-  color: {
+ModuleDisplay {
+  id: root
+  property color fontColor: {
     if (Power.stateName === "Charging") {
       return Theme.options.bar.safeFg;
     } else if (Battery.percentageInt <= 20) {
@@ -19,18 +16,28 @@ Text {
       return Theme.options.bar.mainFg;
     }
   }
-  font.family: Theme.fontFamily
-  font.pixelSize: Theme.fontSize
-  font.weight: Theme.fontWeight
 
-  property var normalIcons: ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-  property var chargeIcons: ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+  StyledBarText {
+    id: batteryIcon
+    color: root.fontColor
 
-  property int index: Math.min(Math.floor(Power.percentageInt / (100 / normalIcons.length)), normalIcons.length - 1)
+    property var normalIcons: ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    property var chargeIcons: ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
 
-  property string icon: {
-    return Power.stateName.toLowerCase() === "charging" ? chargeIcons[index] : normalIcons[index];
+    property int index: Math.min(Math.floor(Power.percentageInt / (100 / normalIcons.length)), normalIcons.length - 1)
+
+    property string icon: {
+      return Power.stateName.toLowerCase() === "charging" ? chargeIcons[index] : normalIcons[index];
+    }
+
+    text: icon
   }
 
-  text: icon + " " + Power.percentageInt + "%"
+  StyledBarText {
+    id: batteryText
+
+    color: root.fontColor
+
+    text: Power.percentageInt + "%"
+  }
 }
