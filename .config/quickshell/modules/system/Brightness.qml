@@ -8,15 +8,17 @@ import Quickshell.Io
 Singleton {
   id: root
 
-  property int brightness: 0
+  property int brightness: 999
 
   function increaseBrightness(percent: int) {
-    Quickshell.execDetached(["brightnessctl", "set", `+${percent}%`]);
+    Quickshell.execDetached(["brightnessctl", "-e2", "set", `+${percent}%`]);
     updateBrightness();
   }
 
   function decreaseBrightness(percent: int) {
-    Quickshell.execDetached(["brightnessctl", "set", `${percent}%-`]);
+    if (root.brightness <= 1)
+      return;
+    Quickshell.execDetached(["brightnessctl", "-e2", "set", `${percent}%-`]);
     updateBrightness();
   }
 
