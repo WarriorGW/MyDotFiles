@@ -33,7 +33,13 @@ Screenshots: [Hyprshot](https://github.com/Gustash/Hyprshot)
 - [x] Wlogout menu
 - [x] Hyprshot for screenshots
 - [ ] Save Wi-Fi passwords and allowing automatic connection
-- [ ] Solve problem when accessing the other disk from dolphin
+- [x] Solve problem when accessing the other disk from dolphin
+  - Terminal -> sudo pacman -S hyprpolkitagent
+  - Hyprland.conf -> exec-once = systemctl --user start hyprpolkitagent
+- [x] Solve dolphin issue when using "Open with"
+  - Terminal -> sudo pacman -S archlinux-xdg-menu
+  - Terminal -> XDG_MENU_PREFIX=arch- kbuildsycoca6
+  - Hyprland.conf => env = XDG_MENU_PREFIX,arch-
 - [ ] Implement Hyprlidle
 - [ ] Implement Plymouth
   - Append `quiet splash` to GRUB_CMDLINE_LINUX_DEFAULT under /etc/default/grub
@@ -44,7 +50,6 @@ Screenshots: [Hyprshot](https://github.com/Gustash/Hyprshot)
 - [ ] Unify theme/cursor for GTK and Qt
 - [ ] Animated wallpaper (GIF/video) integrated with quickshell wallpaper changer
 - [ ] Set password wallet for certain apps (Brave, VSCode, etc.)
-- [ ] Solve dolphin issue when using "Open with"
 - [ ] Battery Administrator (TLP, auto-cpufreq, etc)
 
 ### Quickshell
