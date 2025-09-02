@@ -32,7 +32,7 @@ Screenshots: [Hyprshot](https://github.com/Gustash/Hyprshot)
     - Fix: Use `-u` when increasing the volume
 - [x] Wlogout menu
 - [x] Hyprshot for screenshots
-- [ ] Save Wi-Fi passwords and allowing automatic connection
+- [x] Save Wi-Fi passwords and allowing automatic connection
 - [x] Solve problem when accessing the other disk from dolphin
   - Terminal -> sudo pacman -S hyprpolkitagent
   - Hyprland.conf -> exec-once = systemctl --user start hyprpolkitagent
@@ -41,15 +41,26 @@ Screenshots: [Hyprshot](https://github.com/Gustash/Hyprshot)
   - Terminal -> XDG_MENU_PREFIX=arch- kbuildsycoca6
   - Hyprland.conf => env = XDG_MENU_PREFIX,arch-
 - [ ] Implement Hyprlidle
-- [ ] Implement Plymouth
+- [x] Implement Plymouth
   - Append `quiet splash` to GRUB_CMDLINE_LINUX_DEFAULT under /etc/default/grub
+  - Copy the plymouth theme to /usr/share/plymouth/themes
+  - To verify the theme exists -> sudo plymouth-set-default-theme -l
+  - To select the theme -> sudo plymouth-set-default-theme theme-name
+  - Rebuild (in my case) dracut -> sudo dracut-rebuild
 - [ ] Install Minecraft
 - [ ] Install Osu
-- [ ] Customize SDDM
-- [ ] Make SDDM be able to use fingerprint
+- [x] Customize SDDM
+  - Used [Hyprland-kath](https://github.com/Keyitdev/sddm-astronaut-theme)
+- [x] Make SDDM be able to use fingerprint
+  - Terminal -> sudo pacman -S fprintd
+  - /etc/pam.d/sddm add at the top:
+    - auth [success=1 new_authtok_reqd=1 default=ignore] pam_unix.so try_first_pass likeauth nullok
+    - auth sufficient pam_fprintd.so
+  - Terminal -> sudo systemctl restart sddm
 - [ ] Unify theme/cursor for GTK and Qt
 - [ ] Animated wallpaper (GIF/video) integrated with quickshell wallpaper changer
-- [ ] Set password wallet for certain apps (Brave, VSCode, etc.)
+- [x] Set password wallet for certain apps (Brave, VSCode, etc.)
+  - Used gnome-keyring with libsecret
 - [ ] Battery Administrator (TLP, auto-cpufreq, etc)
 
 ### Quickshell
