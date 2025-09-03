@@ -6,7 +6,7 @@ Window Manager: [Hyprland](https://hypr.land)
 
 Bar: [Waybar](https://github.com/Alexays/Waybar) - Deprecated
 
-Notification daemon: [Dunst](https://github.com/dunst-project/dunst)
+Notification daemon: [swaync](https://github.com/ErikReider/SwayNotificationCenter)
 
 App Launcher: [Rofi](https://github.com/davatorium/rofi)
 
