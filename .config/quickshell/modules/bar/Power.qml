@@ -12,4 +12,13 @@ Text {
   font.pixelSize: Theme.fontSize
 
   text: "⏻"
+
+  MouseArea {
+    anchors.fill: parent
+    hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
+    onClicked: {
+      Quickshell.execDetached(['wlogout', '-b 6']);
+    }
+  }
 }
