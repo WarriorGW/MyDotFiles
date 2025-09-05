@@ -110,11 +110,33 @@ Scope {
             }
 
             Pill {
-              Bluetooth {
-                id: bluetoothWidget
-              }
-              Network {
-                id: networkWidget
+              id: ncPill
+
+              Item {
+                id: btNcWrapper
+                width: bluetoothWidget.implicitWidth + networkWidget.implicitWidth + ncPill.rowSpacing
+                height: Math.max(bluetoothWidget.implicitHeight, networkWidget.implicitHeight)
+
+                Row {
+                  anchors.fill: parent
+                  spacing: ncPill.rowSpacing
+
+                  Bluetooth {
+                    id: bluetoothWidget
+                  }
+
+                  Network {
+                    id: networkWidget
+                  }
+                }
+
+                MouseArea {
+                  anchors.fill: parent
+                  cursorShape: Qt.PointingHandCursor
+                  onClicked: {
+                    GlobalStates.ncPanelVisible = !GlobalStates.ncPanelVisible;
+                  }
+                }
               }
               Power {
                 id: powerWidget
