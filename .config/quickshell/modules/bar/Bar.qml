@@ -40,7 +40,7 @@ Scope {
 
           RowLayout {
             anchors.verticalCenter: parent.verticalCenter
-            spacing: Theme.options.bar.pillsHPadding
+            spacing: Theme.options.bar.pillSpacing
 
             Pill {
               Text {
@@ -57,6 +57,12 @@ Scope {
                 font.pixelSize: 14
                 text: "Arch Linux"
                 font.family: Theme.fontFamily
+              }
+            }
+
+            Pill {
+              Language {
+                id: languageWidget
               }
             }
           }
