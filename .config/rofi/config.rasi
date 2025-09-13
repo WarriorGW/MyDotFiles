@@ -34,18 +34,18 @@ mainbox {
     spacing:                     0em;
     padding:                     0em;
     orientation:                 horizontal;
-    children:                    [ "dummywall" , "listbox" ];
+    children:                    [ "dummywall" ];
     background-color:            transparent;
 }
 dummywall {
     spacing:                     0em;
     padding:                     0em;
-    width:                       37em;
+    width:                       63em;
     expand:                      false;
     orientation:                 horizontal;
-    children:                    [ "mode-switcher" ];
+    children:                    [ "mode-switcher", "listbox" ];
     background-color:            transparent;
-    background-image:            url("~/.config/meowrch/current_wallpaper", height);
+    background-image:            url("~/Pictures/Wallpapers/Chismosi-Cat.jpg", height);
 }
 
 
@@ -118,7 +118,7 @@ listview {
     enabled:                     true;
     spacing:                     0em;
     padding:                     0em;
-    columns:                     1;
+    columns:                     2;
     lines:                       6;
     cycle:                       true;
     dynamic:                     true;
