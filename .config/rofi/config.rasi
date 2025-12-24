@@ -24,8 +24,8 @@ window {
     cursor:                      "default";
     spacing:                     0em;
     padding:                     0em;
-    border:						           3px solid;
-    border-radius: 				       15px;
+    border:				         3px solid;
+    border-radius: 				 15px;
     border-color:                @main-br;
     background-color:            @main-bg;
 }
@@ -82,14 +82,14 @@ inputbar {
 }
 
 prompt {
-	enabled:                       true;
-	padding:                       0.5em 1em 0.5em 1em;
+	enabled:                     true;
+	padding:                     0.5em 1em 0.5em 1em;
     text-align:                  center;
     cursor:                      default;
     background-color:            transparent;
     text-color:                  @select-fg;
-    border:						           2px solid;
-    border-radius: 				       10px 0px 0px 10px;
+    border:						 2px solid;
+    border-radius: 				 10px 0px 0px 10px;
     border-color:                @main-br;
     background-color:            @main-br;
 }
@@ -100,8 +100,8 @@ entry {
     cursor:                      text;
     background-color:            transparent;
     text-color:                  @main-fg;
-    border:						           2px solid;
-    border-radius: 				       0px 10px 10px 0px;
+    border:						 2px solid;
+    border-radius: 				 0px 10px 10px 0px;
     border-color:                @main-br;
     background-color:            @main-bg;
 }
@@ -149,7 +149,7 @@ element {
 element selected.normal {
     background-color:            @select-bg;
     text-color:                  @select-fg;
-    border-radius:				       15px;
+    border-radius:				 15px;
 }
 element-icon {
     size:                        2.8em;
