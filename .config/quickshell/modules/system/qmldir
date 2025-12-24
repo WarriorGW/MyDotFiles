@@ -1,0 +1,5 @@
+singleton Audio 1.0 Audio.qml
+singleton Time 1.0 Time.qml
+singleton Power 1.0 Power.qml
+singleton Brightness 1.0 Brightness.qml
+singleton KeyboardLayout 1.0 KeyboardLayout.qml
