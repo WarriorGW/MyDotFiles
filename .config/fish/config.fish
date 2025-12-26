@@ -1,5 +1,5 @@
 alias cls="clear"
-alias ls="ls -A --color=auto"
+alias ls="ls -A --color=always --group-directories-first"
 alias tree="tree -a -I '.git'"
 
 alias gs='git status'
