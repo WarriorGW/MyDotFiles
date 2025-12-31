@@ -1,4 +1,4 @@
-.config/fish/**/*nvm*.fish
+.config/fish/**/*
 .config/fish/**/fish_variables
 
 .config/quickshell/.qmlls.*
