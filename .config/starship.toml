@@ -6,12 +6,9 @@ add_newline = false
 # Random noise 🬖🬥🬔🬗
 # Cool stuff 󰜥   
 
-# format = """
-# $cmd_duration$username$hostname $directory $git_branch
-# $character
-# """
 format = """
-$cmd_duration 󰜥 $directory $git_branch
+$cmd_duration 󰜥 $directory $git_branch\
+$fill$python$nodejs
 $character"""
 
 # Replace the "❯" symbol in the prompt with "➜"
@@ -85,7 +82,6 @@ truncation_length = 6
 truncation_symbol = " ••/"
 format = '[](bold fg:green)[󰉋 $path]($style)[](bold fg:green)'
 
-
 [directory.substitutions]
 "Desktop" = "  "
 "Documents" = "  "
@@ -98,3 +94,14 @@ format = '[](bold fg:green)[󰉋 $path]($style)[](bold fg:green)'
 [cmd_duration]
 min_time = 0
 format = '[](bold fg:yellow)[󰪢 $duration](bold bg:yellow fg:black)[](bold fg:yellow)'
+
+[python]
+symbol = " 󰌠 "
+style = "bg:green fg:black"
+format = '[](bold fg:green)[$symbol$virtualenv]($style)[](bold fg:green)'
+version_format = "${raw}"
+
+[nodejs]
+symbol = ""
+style = "bg:green"
+format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
