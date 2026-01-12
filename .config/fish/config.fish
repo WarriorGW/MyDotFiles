@@ -10,8 +10,8 @@ alias gp='git push'
 alias gf='git fetch'
 alias gpl='git pull'
 
-alias ls='eza -a --color=always --group-directories-first --icons'
-alias lt='eza -aT --color=always --group-directories-first --icons'
+alias ls='eza -a --color=always --group-directories-first --icons --git-ignore'
+alias lt='eza -aT --color=always --group-directories-first --icons --git-ignore'
 
 alias cmdhist='history | awk '\''{print $1}'\'' | sort | uniq -c | sort -rn | head -10'
 alias rankcmdhist='history | awk '\''{CMD[$1]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}'\'' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10'
