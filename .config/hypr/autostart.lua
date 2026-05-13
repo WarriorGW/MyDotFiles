@@ -1,0 +1,6 @@
+hl.on("hyprland.start", function()
+  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  hl.exec_cmd("qs -c noctalia-shell")
+  hl.exec_cmd("hypridle")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme 'BreezeX-RoséPine'")
+end)
