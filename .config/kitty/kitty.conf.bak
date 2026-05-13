@@ -7,11 +7,11 @@ hide_window_decorations    no
 
 # Theme settings
 
-# include themes/meowrch.conf
+include themes/meowrch.conf
 
 include key_definitions.conf
 
 # BEGIN_KITTY_THEME
 # Noctalia
-include current-theme.conf
+# include current-theme.conf
 # END_KITTY_THEME
