@@ -10,6 +10,9 @@ require("autostart")
 -- Keybinds configuration
 require("keybinds")
 
+-- Animations
+require("animations")
+
 -- Environment variables
 hl.env("XDG_MENU_PREFIX", "arch-")
 hl.env("XCURSOR_THEME", "BreezeX-RoséPine")
